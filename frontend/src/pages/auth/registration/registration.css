@@ -1,0 +1,77 @@
+/* registration.css */
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.registration-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px; /* Increase the padding to give more spacing around the form */
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #228b22;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+label {
+  flex-basis: 120px;
+  margin-right: 20px;
+}
+
+input,
+select {
+  flex-grow: 1;
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 100%; /* Set the width to 100% to make all fields the same size */
+}
+
+button {
+  padding: 10px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+p {
+  text-align: center;
+  margin-top: 20px;
+}
+
+a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

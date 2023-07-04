@@ -1,0 +1,36 @@
+.item-date12 {
+    font-size: 6px;
+    color: white;
+  }
+  .main12{
+    border-radius: 20px 40px 20px 0px;
+    overflow: hidden;
+    perspective: 1px;
+    background: #666666;
+    margin: 10px 10px  5px 30px;
+    padding: 10px;
+  }
+  .item-text12 {
+    font-size: 10px;
+    padding-top: 10px;
+    display: block;
+   
+    color: white;
+  }
+  .item-username12 {
+    font-size: 13px;
+    color: #cf843c;
+  }
+  
+  .reply-btn {
+    background: #ff0101;
+    color: white;
+    padding: 7px;
+    border-radius: 3px;
+  }
+  
+  .item-reply-message {
+    font-size: 9px;
+    color: #5a4848;
+  }
+  

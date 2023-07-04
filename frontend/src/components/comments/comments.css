@@ -1,0 +1,39 @@
+.main{
+  border-radius: 20px 40px 20px 0px;
+  overflow: hidden;
+  perspective: 1px;
+  background: #b0b0b0;
+  margin: 10px;
+  padding: 10px;
+}
+
+.item-date {
+  font-size: 12px;
+  padding-left: 6px;
+  color: white;
+  
+}
+.item-text {
+  padding-left: 6px;
+  font-size: 15px;
+  padding-top: 10px;
+  display: block;
+  color: white;
+}
+.item-username {
+  padding-left: 6px;
+  font-size: 20px;
+  color: #cf843c;
+}
+
+.reply-btn {
+  background: #ff0101;
+  color: white;
+  padding: 7px;
+  border-radius: 3px;
+}
+
+.item-reply-message {
+  font-size: 9px;
+  color: #5a4848;
+}
