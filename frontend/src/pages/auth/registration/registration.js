@@ -21,7 +21,7 @@ export const Registration = () => {
         password,
         email,
         role,
-        grade: role === 'Teacher' ? grade : '',
+        grade: role === 'Teacher' || 'Student' ? grade : '',
         category: role === 'Teacher' ? category : '',
       };
 

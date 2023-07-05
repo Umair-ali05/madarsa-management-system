@@ -1,17 +1,17 @@
-/* adminHeader.css */
+/* AdminHeader.css */
 
 /* Header */
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
-  background-color: #f4f4f4;
+  padding: 30px;
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
-  height: 40px;
+  height: 20px;
 }
 
 .user-info button {

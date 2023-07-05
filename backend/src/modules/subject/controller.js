@@ -112,6 +112,14 @@ export default {
         }
         query.teacher = teacherId;
       }
+
+      if (req.user.user.role === 'Student') {
+        const objectIds = req.user.user.subject.map(
+          (id) => new mongoose.Types.ObjectId(id)
+        );
+        query._id = { $in: objectIds };
+      }
+
       const subjects = await SubjectModel.getSubjectsData(query);
 
       if (subjects.length <= 0) {
@@ -125,9 +133,7 @@ export default {
         response: subjects,
       });
     } catch (error) {
-      return res
-        .status(500)
-        .json({ success: false, message: 'Failed to add subject to class' });
+      return res.status(500).json({ success: false, message: error.message });
     }
   },
   updateSubject: async (req, res) => {

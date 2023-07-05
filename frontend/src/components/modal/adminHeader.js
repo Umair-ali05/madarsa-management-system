@@ -40,18 +40,17 @@ const AdminHeader = () => {
     <>
       <div>
         {/* Header */}
-        <header>
+        <dev className='header'>
           <div className='logo'>
-            {/* Replace with your logo */}
             <img
-              src='/path/to/logo.png'
+              src='./logo-removebg-preview.png'
               alt='Logo'
             />
           </div>
           <div className='user-info'>
             <button onClick={detail}>{name}</button>
           </div>
-        </header>
+        </dev>
       </div>
 
       <Modal>

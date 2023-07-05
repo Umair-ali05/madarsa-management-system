@@ -8,8 +8,11 @@ import { UpdateUserDetails } from './pages/auth/update_details';
 import { AdminDashboard } from './pages/dashboard/admin';
 import { ClassesPage } from './pages/admin/class/classes';
 import { ClassDetailsPage } from './pages/admin/class/class';
+import { TeachersPage } from './pages/admin/teachers/teachers';
 import { TeacherDashboard } from './pages/dashboard/teacher';
 import { MarkAttendance } from './pages/teacher/attendace';
+
+import { StudentDashboard } from './pages/dashboard/student';
 import TeacherSubject from './pages/teacher/subject';
 
 const App = () => {
@@ -60,6 +63,11 @@ const App = () => {
           />
           <Route
             exact
+            path='/admin/teachers'
+            component={TeachersPage}
+          />
+          <Route
+            exact
             path='/teacher'
             component={TeacherDashboard}
           />
@@ -72,6 +80,12 @@ const App = () => {
             exact
             path='/teacher/attendance/:id'
             component={MarkAttendance}
+          />
+
+          <Route
+            exact
+            path='/student'
+            component={StudentDashboard}
           />
         </Switch>
       </Router>

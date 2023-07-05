@@ -7,24 +7,12 @@ html,
   padding: 0;
 }
 
-/* adminDashboard.css */
-
-#root {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .admin-header {
-  background-color: green;
-  color: white;
-  padding: 20px;
   width: 100%;
 }
 
 .admin-header .logo img {
-  height: 40px;
+  height: auto;
   width: auto;
 }
 

@@ -7,14 +7,14 @@ config();
 
 export default {
   getUsersData: async (req, res) => {
-    const { grade, category } = req.query;
-
+    const { grade, name } = req.query;
+    let filter = {
+      role: 'Teacher',
+      ...(grade && { grade: grade }),
+      ...(name && { name: { $regex: new RegExp(name, 'i') } }),
+    };
     try {
-      const teachers = await UserModel.getUsersData({
-        role: 'Teacher',
-        grade: { $regex: new RegExp(grade, 'i') },
-        category: { $regex: new RegExp(category, 'i') },
-      });
+      const teachers = await UserModel.getUsersData(filter);
       if (teachers.length <= 0) {
         return res.status(500).json({
           success: false,
@@ -23,7 +23,7 @@ export default {
       }
       return res.json({
         success: true,
-        teachers,
+        response: teachers,
       });
     } catch (error) {
       return res.status(500).json({

@@ -7,7 +7,7 @@ export const AdminDashboard = () => {
     window.location.replace('/admin/classes');
   };
   const teacher = () => {
-    window.location.replace('/admin/classes');
+    window.location.replace('/admin/teachers');
   };
 
   return (

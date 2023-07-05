@@ -5,6 +5,8 @@ import { config } from 'dotenv';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import UserModel from '../../repo/user.js';
+import ClassRepository from '../../repo/class.js';
+import SubjectRepo from '../../repo/subject.js';
 import { trusted } from 'mongoose';
 
 config();
@@ -31,10 +33,18 @@ export default {
       body.password = await bcrypt.hash(password, 10);
       body.otp = 123456;
 
-      const newUser = await UserModel.createUser(body);
-
       if (role === 'Student') {
+        const getClassId = await ClassRepository.getClassData({
+          grade: body.grade,
+        });
+        const subjectsOfClass = await SubjectRepo.getSubjectsData({
+          class: getClassId._id,
+        });
+
+        const classIds = subjectsOfClass.map((item) => item._id);
+        body.subject = classIds;
       }
+      const newUser = await UserModel.createUser(body);
 
       return res.status(200).json({
         success: true,
