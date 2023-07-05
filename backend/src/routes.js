@@ -21,6 +21,7 @@ router.post('/verify-otp', authController.verifyOtp);
 router.post('/resend-otp', authController.resendOtp);
 
 router.get('/users', auth, userController.getUsersData);
+router.get('/user', auth, userController.getUserData);
 
 router.post('/class', auth, classController.createClass);
 router.get('/classes', auth, classController.getClasses);
