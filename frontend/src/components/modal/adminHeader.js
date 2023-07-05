@@ -317,7 +317,7 @@ const AssignSubjectToTeacher = (id) => {
 
   const searchTeachers = async () => {
     try {
-      const response = await axios.get('http://localhost:30000/api/users', {
+      const response = await axios.get('http://localhost:30000/api/user', {
         params: { grade, category },
         headers: { Authorization: localStorage.getItem('Authorization') },
       });
