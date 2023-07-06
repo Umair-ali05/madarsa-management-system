@@ -11,6 +11,7 @@ import { ClassDetailsPage } from './pages/admin/class/class';
 import { TeachersPage } from './pages/admin/teachers/teachers';
 import { TeacherDashboard } from './pages/dashboard/teacher';
 import { MarkAttendance } from './pages/teacher/attendace';
+import AssignmentsPage from './pages/student/assignment';
 
 import { StudentDashboard } from './pages/dashboard/student';
 import TeacherSubject from './pages/teacher/subject';
@@ -86,6 +87,12 @@ const App = () => {
             exact
             path='/student'
             component={StudentDashboard}
+          />
+
+          <Route
+            exact
+            path='/student/assignments/:courseId'
+            component={AssignmentsPage}
           />
         </Switch>
       </Router>

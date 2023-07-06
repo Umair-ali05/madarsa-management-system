@@ -44,79 +44,59 @@ export default {
       return res.status(500).json({ success: false, message: error.message });
     }
   },
-  getSubject: async (req, res) => {
+  getAssignment: async (req, res) => {
     try {
-      let { subjectId } = req.params;
+      let { assignmentId } = req.params;
 
-      if (!subjectId) {
+      if (!assignmentId) {
         return res
           .status(404)
-          .json({ success: false, message: 'Subject Id is missing' });
+          .json({ success: false, message: 'Subjct Id is missing' });
       }
-      subjectId = new mongoose.Types.ObjectId(subjectId);
+      assignmentId = new mongoose.Types.ObjectId(assignmentId);
 
-      const subject = await SubjectModel.getSubjectData({ _id: subjectId });
+      const assignment = await SubjectModel.getSubjectData({
+        _id: assignmentId,
+      });
 
-      if (!subject) {
+      if (!assignment) {
         return res
           .status(404)
-          .json({ success: false, message: 'Subject not found' });
+          .json({ success: false, message: 'assignment not found' });
       }
 
-      return res.status(200).json({ success: true, response: subject });
+      return res.status(200).json({ success: true, response: assignment });
     } catch (error) {
       return res.status(500).json({ success: false, message: error.message });
     }
   },
-  getSubjects: async (req, res) => {
+  getAssignments: async (req, res) => {
     try {
       let query = {};
-      if (req.query.classId) {
-        let { classId } = req.query;
-        if (!classId) {
-          return res
-            .status(404)
-            .json({ success: false, message: 'Class id is required' });
-        }
-        classId = new mongoose.Types.ObjectId(classId);
-        const targetClass = await ClassModel.getClassData({ _id: classId });
 
-        if (!targetClass) {
+      if (req.params.subjectId) {
+        let { subjectId } = req.params;
+        if (!subjectId) {
           return res
             .status(404)
-            .json({ success: false, message: 'Class not found' });
+            .json({ success: false, message: 'subject id is required' });
         }
-        query.class = classId;
-      }
-      if (req.query.teacherId) {
-        let { teacherId } = req.query;
-        if (!teacherId) {
-          return res
-            .status(404)
-            .json({ success: false, message: 'Class id is required' });
-        }
-        teacherId = new mongoose.Types.ObjectId(teacherId);
-        const targetTeacher = await UserModel.getUserData({ _id: teacherId });
+        subjectId = new mongoose.Types.ObjectId(subjectId);
+        const assignments = await AssignmentModel.getAssignmentsData({
+          subject: subjectId,
+        });
 
-        if (!targetTeacher) {
+        if (!assignments) {
           return res
             .status(404)
-            .json({ success: false, message: 'Teacher not found' });
+            .json({ success: false, message: 'no assignment posted yet' });
         }
-        query.teacher = teacherId;
+        return res.status(200).json({
+          success: true,
+          message: 'assignments',
+          response: assignments,
+        });
       }
-      const subjects = await SubjectModel.getSubjectsData(query);
-
-      if (subjects.length <= 0) {
-        return res
-          .status(400)
-          .json({ success: false, message: 'No subject registerd yet' });
-      }
-      return res.status(200).json({
-        success: true,
-        message: 'subjects',
-        response: subjects,
-      });
     } catch (error) {
       return res
         .status(500)

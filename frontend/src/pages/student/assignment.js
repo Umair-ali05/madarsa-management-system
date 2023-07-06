@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Toast from '../../utils/utils.jsx';
-import { decodeToken } from 'react-jwt';
 import { Link, useHistory } from 'react-router-dom';
 
 import {
@@ -14,70 +13,64 @@ import {
   MDBRipple,
 } from 'mdb-react-ui-kit';
 
-export const StudentDashboard = () => {
-  const [courses, setCourses] = useState([]);
-  const history = useHistory();
+const AssignmentsPage = ({ match }) => {
+  const [assignments, setAssignments] = useState([]);
 
-  const fetchCourses = async () => {
+  const fetchAssignments = async () => {
     try {
+      const courseId = match.params.courseId;
       const token = localStorage.getItem('Authorization');
-
-      const response = await axios.get(`http://localhost:30000/api/subjects`, {
-        headers: { Authorization: token },
-      });
+      console.log(courseId);
+      const response = await axios.get(
+        `http://localhost:30000/api/assignments/${courseId}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
 
       if (response.data.success) {
         Toast.successToastMessage(response.data.message);
-        setCourses(response.data.response);
+        setAssignments(response.data.response);
       } else {
         Toast.errorToastMessage(response.data.message);
       }
     } catch (error) {
       if (error.response && error.response.data) {
-        Toast.errorToastMessage(error.response.datamessage);
+        Toast.errorToastMessage(error.response.data.message);
       } else {
         Toast.errorToastMessage(error.message);
       }
     }
   };
 
-  const handleViewAssignments = (courseId) => {
-    window.location.replace(`/student/assignments/${courseId}`);
-  };
-
   useEffect(() => {
-    fetchCourses();
+    fetchAssignments();
   }, []);
-
   return (
     <>
       <div>
         {/* Dashboard content */}
         <div className='dashboard-content'>
-          <h2>Student Dashboard</h2>
           <div className='dashboard-buttons'>
-            <h2>Courses</h2>
+            <h2>Assignments</h2>
           </div>
           <div className='course-cards'>
-            {courses.map((course) => (
-              <MDBCard key={course._id}>
+            {assignments.map((assignment) => (
+              <MDBCard key={assignment._id}>
                 <Link
-                  to={`/student/course/${course._id}`}
+                  to={`/student/course/${assignment._id}`}
                   className='link'
                 >
                   <MDBCardBody>
                     <MDBCardTitle className='c-title'>
-                      Name: {course.name}
+                      Name: {assignment.title}
                     </MDBCardTitle>
                     <MDBCardText className='card-name'>
-                      Description: {course.description}
+                      Description: {assignment.description}
                     </MDBCardText>
                     <MDBCardText className='card-name'>
-                      Teacher: {course.teacher}
+                      Date: {new Date(assignment.deadline).toLocaleDateString()}
                     </MDBCardText>
-                    <MDBBtn onClick={() => handleViewAssignments(course._id)}>
-                      View Assignments
-                    </MDBBtn>
                   </MDBCardBody>
                 </Link>
               </MDBCard>
@@ -88,3 +81,5 @@ export const StudentDashboard = () => {
     </>
   );
 };
+
+export default AssignmentsPage;

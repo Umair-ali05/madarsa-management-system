@@ -37,6 +37,16 @@ router.put('/subject', auth, subjectController.updateSubject);
 router.delete('/subject/:id', auth, subjectController.deleteSubject);
 
 router.post('/assignment', auth, assignmentController.addAssignemnt);
+router.get(
+  '/assignments/:subjectId',
+  auth,
+  assignmentController.getAssignments
+);
+router.get(
+  '/assignment/:assignmentId',
+  auth,
+  assignmentController.getAssignment
+);
 router.get('/classes', auth, classController.getClasses);
 router.get('/class/:id', auth, classController.getClass);
 router.use('*', (req, res) => {
