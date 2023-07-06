@@ -36,9 +36,9 @@ export const Login = () => {
   return (
     <div className='container'>
       <h2>Login</h2>
-      <form onSubmit={handleLogin}>
+      <form id='login-form' onSubmit={handleLogin}>
         <div className='label-container'>
-          <label>Email:</label>
+          <label className='login-label'>Email:</label>
           <input
             type='email'
             value={email}
@@ -46,7 +46,7 @@ export const Login = () => {
           />
         </div>
         <div className='label-container'>
-          <label>Password:</label>
+          <label className='login-label'>Password:</label>
           <input
             type='password'
             value={password}

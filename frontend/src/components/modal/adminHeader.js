@@ -43,7 +43,7 @@ const AdminHeader = () => {
         <dev className='header'>
           <div className='logo'>
             <img
-              src='./logo-removebg-preview.png'
+              src='/images/logo.jpg'
               alt='Logo'
             />
           </div>

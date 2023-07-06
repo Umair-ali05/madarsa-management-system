@@ -1,3 +1,4 @@
+import '../home/home.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { StudentHeader } from '../../components/modal/studentHeader.js';

@@ -65,7 +65,7 @@ export const OTPVerification = () => {
     <div className='container'>
       <h2>OTP Verification</h2>
 
-      <form onSubmit={handleVerifyOTP}>
+      <form id='otp-form' onSubmit={handleVerifyOTP}>
         <label>
           Email:
           <input
