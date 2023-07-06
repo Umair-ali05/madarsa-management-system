@@ -42,10 +42,7 @@ const AdminHeader = () => {
         {/* Header */}
         <dev className='header'>
           <div className='logo'>
-            <img
-              src='/images/logo.jpg'
-              alt='Logo'
-            />
+          <img src="logo1.png" alt="Logo" />
           </div>
           <div className='user-info'>
             <button onClick={detail}>{name}</button>
@@ -132,7 +129,7 @@ const AddClass = () => {
     <>
       <button onClick={openAddClassForm}>Add Class</button>
       <Modal>
-        <div>
+        <div >
           <form onSubmit={handleFormSubmit}>
             <div>
               <label htmlFor='name'>Name:</label>

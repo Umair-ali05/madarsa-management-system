@@ -10,12 +10,16 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-top: 05% !important;
+  position: relative;
 }
 
 h2 {
   text-align: center;
   margin-bottom: 30px;
   color: #228b22;
+}
+#login{
+  color: black;
 }
 
 #login-form {

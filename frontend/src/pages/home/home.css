@@ -4,12 +4,14 @@
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
 }
 .card-title{
     margin-left: auto;
     margin-right: auto;
     font-size: 20px;
     margin-bottom: 5px;
+    position: relative;
 }
 .card-body {
     max-width: 250px;
@@ -22,6 +24,7 @@
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1) !important;
+    position: relative;
 }
 .ripple {
     display: flex;
@@ -30,6 +33,7 @@
     margin-right: auto;
     margin-top: 15px;
     margin-bottom: 20px;
+    position: relative;
 }
 form{
     position: relative;
@@ -45,10 +49,12 @@ label {
     margin-right: 20px;
     font-size: 18px;
     margin-left: 16px;
+    position: relative;
 }
 #description{
     width: 82%;
     padding: 19px;
+    position: relative;
 }
 .class-details{
     max-width: 250px;
@@ -61,6 +67,7 @@ label {
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+    position: relative;
 }
 .subject-cards{
     max-width: 300px;
@@ -73,10 +80,12 @@ label {
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+    position: relative;
 }
 .subject-cards h4 {
     display: flex;
     justify-content: center;
+    position: relative;
 }
 button {
     justify-content: space-evenly;
@@ -84,10 +93,12 @@ button {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 16px;
+    position: relative;
 }
 #subject-details{
     display: flex;
     justify-content: center;
+    position: relative;
 }
 #teachers-form{
     max-width: 250px;
@@ -104,4 +115,5 @@ button {
     background-color: #f4f4f4;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 1.1);
+    position: relative;
 }

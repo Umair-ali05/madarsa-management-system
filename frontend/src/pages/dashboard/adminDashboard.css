@@ -5,15 +5,42 @@ html,
   height: 100%;
   margin: 0;
   padding: 0;
+  background-image: url(/public/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+}
+html,
+#root::before{
+  content: '';
+  position: absolute;
+  left:0;
+  right:0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.716);
 }
 
 .admin-header {
   width: 100%;
+  position: relative;
+}
+h2{
+  color: white;
+  position: relative;
+}
+h3{
+  color: white;
+  position: relative;
 }
 
 .admin-header .logo img {
-  height: auto;
+  position: relative;
+  height: 85px;
   width: auto;
+  position: relative;
 }
 
 .admin-header .user-info button {
@@ -24,35 +51,24 @@ html,
   color: white;
   font-weight: bold;
   cursor: pointer;
+  position: relative;
 }
 
 .dashboard-content {
   padding: 20px;
+  position: relative;
 }
 
 .dashboard-content h2 {
   font-size: 24px;
   margin-bottom: 20px;
-}
-
-/* .dashboard-buttons {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  height: 45px;
-}
-
-.dashboard-buttons button {
-  margin-right: 10px;
-  background-color: green;
   color: white;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-} */
+  position: relative;
+}
+
 #button-admin{
   display: flex;
+  position: relative;
 }
 
 #button-admin button{
@@ -61,4 +77,5 @@ html,
   flex-direction: column;
   justify-content: center;
   height: 45px;
+  position: relative;
 }

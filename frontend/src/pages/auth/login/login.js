@@ -35,7 +35,7 @@ export const Login = () => {
 
   return (
     <div className='container'>
-      <h2>Login</h2>
+      <h2 id='login' >Login</h2>
       <form id='login-form' onSubmit={handleLogin}>
         <div className='label-container'>
           <label className='login-label'>Email:</label>
