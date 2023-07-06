@@ -1,3 +1,4 @@
+import '../../home/home.css';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -96,12 +97,12 @@ export const ClassDetailsPage = () => {
   return (
     <div>
       <h2>Class Details</h2>
-      <div>
+      <div className='class-details' >
         <p>Name: {classDetails.name}</p>
         <p>Grade: {classDetails.grade}</p>
         <p>Discription: {classDetails.description}</p>
       </div>
-      <h3>Subjects</h3>
+      <h3 id='subject-details'>Subjects</h3>
       <AddSubject classId={classId} />
       <div className='subject-cards'>
         {subjects.map((subject) => (

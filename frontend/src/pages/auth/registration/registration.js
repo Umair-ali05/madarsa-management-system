@@ -48,7 +48,7 @@ export const Registration = () => {
     <div className='registration-container'>
       <h2>Sign Up</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form id='registration-form' onSubmit={handleSubmit}>
         <label>
           Name:
           <input

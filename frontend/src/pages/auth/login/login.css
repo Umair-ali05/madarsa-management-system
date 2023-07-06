@@ -9,6 +9,7 @@
   background-color: #f4f4f4;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 05% !important;
 }
 
 h2 {
@@ -17,9 +18,12 @@ h2 {
   color: #228b22;
 }
 
-form {
+#login-form {
   display: flex;
   flex-direction: column;
+  background: none !important;
+  justify-content: center !important;
+  border: none !important;
 }
 
 .label-container {
@@ -28,9 +32,9 @@ form {
   margin-bottom: 20px;
 }
 
-label {
-  flex-basis: 120px;
-  margin-right: 20px;
+.login-label {
+  flex-basis: 120px !important;
+  margin-right: 20px !important;
 }
 
 input {

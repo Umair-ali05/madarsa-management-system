@@ -1,3 +1,4 @@
+import '../../home/home.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Toast from '../../../utils/utils.jsx';
@@ -74,7 +75,7 @@ export const TeachersPage = () => {
 
       <h2>Teachers</h2>
       <div>
-        <form onSubmit={handleFilterSubmit}>
+        <form id='teachers-form' onSubmit={handleFilterSubmit}>
           <label>
             Grade:
             <select
