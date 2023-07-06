@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { StudentHeader } from '../../components/modal/studentHeader.js';
 import Toast from '../../utils/utils.jsx';
 import { decodeToken } from 'react-jwt';
 import { Link, useHistory } from 'react-router-dom';
@@ -54,6 +55,7 @@ export const StudentDashboard = () => {
       <div>
         {/* Dashboard content */}
         <div className='dashboard-content'>
+          <StudentHeader />
           <h2>Student Dashboard</h2>
           <div className='dashboard-buttons'>
             <h2>Courses</h2>
