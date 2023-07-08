@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuthRedirect } from './components/redirect_user/redrict_user';
 import { Login } from './pages/auth/login/login';
 import { Registration } from './pages/auth/registration/registration';
+import PaymentPage from './pages/auth/payment/payment';
 import { OTPVerification } from './pages/auth/otp/otp';
 import { UpdateUserDetails } from './pages/auth/update_details';
 import { AdminDashboard } from './pages/dashboard/admin';
@@ -41,6 +42,11 @@ const App = () => {
             exact
             path='/otp'
             component={OTPVerification}
+          />
+          <Route
+            exact
+            path='/payment'
+            component={PaymentPage}
           />
           <Route
             exact

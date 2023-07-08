@@ -8,6 +8,7 @@ import userController from './modules/user/controller.js';
 import classController from './modules/class/controller.js';
 import subjectController from './modules/subject/controller.js';
 import assignmentController from './modules/assignment/controller.js';
+import paymentController from './modules//payment/controller.js';
 // import teacherController from './modules/teacher/controller.js';
 // import studentController from './modules/student/controller.js';
 import auth from './middleware/auth.js';
@@ -49,6 +50,7 @@ router.get(
 );
 router.get('/classes', auth, classController.getClasses);
 router.get('/class/:id', auth, classController.getClass);
+router.post('/payment', paymentController.pay);
 router.use('*', (req, res) => {
   res.status(404).json({
     code: "404 : page not found'",

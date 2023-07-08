@@ -32,11 +32,17 @@ export const Login = () => {
       }
     }
   };
+  const payment = () => {
+    window.location.replace('/payment');
+  };
 
   return (
     <div className='container'>
-      <h2 id='login' >Login</h2>
-      <form id='login-form' onSubmit={handleLogin}>
+      <h2 id='login'>Login</h2>
+      <form
+        id='login-form'
+        onSubmit={handleLogin}
+      >
         <div className='label-container'>
           <label className='login-label'>Email:</label>
           <input
@@ -59,6 +65,7 @@ export const Login = () => {
         <p>
           Create an account! <Link to='/register'>Sign up</Link>
         </p>
+        <button onClick={payment}>Click me</button>
       </div>
     </div>
   );
