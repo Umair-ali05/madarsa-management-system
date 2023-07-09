@@ -9,6 +9,8 @@ import classController from './modules/class/controller.js';
 import subjectController from './modules/subject/controller.js';
 import assignmentController from './modules/assignment/controller.js';
 import paymentController from './modules//payment/controller.js';
+import attendanceController from './modules/attendance/controller.js';
+import resultController from './modules/result/controller.js';
 // import teacherController from './modules/teacher/controller.js';
 // import studentController from './modules/student/controller.js';
 import auth from './middleware/auth.js';
@@ -23,6 +25,7 @@ router.post('/resend-otp', authController.resendOtp);
 
 router.get('/users', auth, userController.getUsersData);
 router.get('/user', auth, userController.getUserData);
+router.get('/students', auth, userController.students);
 
 router.post('/class', auth, classController.createClass);
 router.get('/classes', auth, classController.getClasses);
@@ -51,6 +54,9 @@ router.get(
 router.get('/classes', auth, classController.getClasses);
 router.get('/class/:id', auth, classController.getClass);
 router.post('/payment', paymentController.pay);
+router.post('/mark-attendace', auth, attendanceController.mark);
+router.post('/result', auth, resultController.result);
+router.get('/result', auth, resultController.getResult);
 router.use('*', (req, res) => {
   res.status(404).json({
     code: "404 : page not found'",

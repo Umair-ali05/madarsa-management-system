@@ -9,7 +9,7 @@ const resultSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  subject: {
+  subjectId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Subject',
     required: true,
@@ -17,10 +17,6 @@ const resultSchema = new mongoose.Schema({
   marks: {
     type: Number,
     required: true,
-  },
-  date: {
-    type: Date,
-    default: Date.now,
   },
 });
 

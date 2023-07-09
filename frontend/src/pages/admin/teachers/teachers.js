@@ -75,7 +75,10 @@ export const TeachersPage = () => {
 
       <h2>Teachers</h2>
       <div>
-        <form id='teachers-form' onSubmit={handleFilterSubmit}>
+        <form
+          id='teachers-form'
+          onSubmit={handleFilterSubmit}
+        >
           <label>
             Grade:
             <select

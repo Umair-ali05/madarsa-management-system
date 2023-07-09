@@ -3,21 +3,39 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TeacherHeader } from '../../components/modal/teacherHeader';
 import Toast from '../../utils/utils.jsx';
+import { useLocation } from 'react-router-dom';
 
 export const MarkAttendance = () => {
   const [students, setStudents] = useState([]);
   const [attendanceData, setAttendanceData] = useState([]);
+  const [subjectId, setSubjectId] = useState('');
+  const [date, setDate] = useState('');
+
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.get('/users'); // Replace with your API endpoint to fetch all students
+        const value = path.split('/')[3];
+        setSubjectId(value);
+
+        const response = await axios.get(
+          'http://localhost:30000/api/students',
+          {
+            headers: { Authorization: localStorage.getItem('Authorization') },
+            params: { subjectId: value },
+          }
+        );
+
         if (response.data.success) {
-          setStudents(response.data.data);
-          const initialAttendanceData = response.data.data.map((student) => ({
-            studentId: student._id,
-            present: false,
-          }));
+          setStudents(response.data.student);
+          const initialAttendanceData = response.data.student.map(
+            (student) => ({
+              studentId: student._id,
+              present: false,
+            })
+          );
           setAttendanceData(initialAttendanceData);
         } else {
           console.error('Failed to fetch students');
@@ -47,15 +65,16 @@ export const MarkAttendance = () => {
     e.preventDefault();
 
     try {
-      // Process attendance data and send to the backend
-      const formattedAttendanceData = attendanceData.map((data) => ({
+      const payload = attendanceData.map((data) => ({
+        subjectId,
+        date: Date.now(),
         studentId: data.studentId,
         present: data.present,
       }));
 
       const response = await axios.post(
-        'http://localhost:30000/api/mark-attendance',
-        formattedAttendanceData,
+        'http://localhost:30000/api/mark-attendace',
+        payload,
         {
           headers: { Authorization: localStorage.getItem('Authorization') },
         }

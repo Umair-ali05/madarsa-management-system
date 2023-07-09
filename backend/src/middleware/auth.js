@@ -7,6 +7,7 @@ config();
 
 const auth = (req, res, next) => {
   const { headers } = req;
+
   const accessToken = headers.authorization
     ? headers.authorization.split(' ')[1]
     : ''; // if token not send it gives split of undef error

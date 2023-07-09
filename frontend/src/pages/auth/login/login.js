@@ -33,7 +33,7 @@ export const Login = () => {
     }
   };
   const payment = () => {
-    window.location.replace('/payment');
+    window.location.replace('/login/payment');
   };
 
   return (
@@ -65,7 +65,7 @@ export const Login = () => {
         <p>
           Create an account! <Link to='/register'>Sign up</Link>
         </p>
-        <button onClick={payment}>Click me</button>
+        <button onClick={payment}>click here for donation</button>
       </div>
     </div>
   );

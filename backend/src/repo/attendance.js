@@ -11,7 +11,7 @@ class User extends Base {
   }
 
   async createAttendance(data) {
-    return this.createRecord(data);
+    return this.createRecords(data);
   }
 
   async updateAttendance(user, data) {

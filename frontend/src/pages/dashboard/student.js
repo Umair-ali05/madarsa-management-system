@@ -47,6 +47,10 @@ export const StudentDashboard = () => {
     window.location.replace(`/student/assignments/${courseId}`);
   };
 
+  const handleViewResult = () => {
+    window.location.replace(`/result`);
+  };
+
   useEffect(() => {
     fetchCourses();
   }, []);
@@ -58,6 +62,7 @@ export const StudentDashboard = () => {
         <div className='dashboard-content'>
           <StudentHeader />
           <h2>Student Dashboard</h2>
+          <MDBBtn onClick={() => handleViewResult()}>View Result</MDBBtn>
           <div className='dashboard-buttons'>
             <h2>Courses</h2>
           </div>

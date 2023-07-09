@@ -67,6 +67,11 @@ const TeacherSubject = () => {
     const lastPath = pathParts[pathParts.length - 1];
     window.location.replace(`/teacher/attendance/${lastPath}`);
   };
+  const handleMarkResult = () => {
+    const pathParts = location.pathname.split('/');
+    const lastPath = pathParts[pathParts.length - 1];
+    window.location.replace(`/teacher/mark-result/${lastPath}`);
+  };
 
   return (
     <div>
@@ -81,6 +86,7 @@ const TeacherSubject = () => {
           </div>
           <AddAssignment id={subject._id} />
           <button onClick={handleMarkAttendance}>Mark Attendance</button>
+          <button onClick={handleMarkResult}>Mark Result</button>
         </div>
       )}
 

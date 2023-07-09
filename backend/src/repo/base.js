@@ -10,8 +10,20 @@ class Base {
     return instance;
   }
 
+  async createRecords(data) {
+    const instance = await this.instanceModel.insertMany(data);
+    return instance;
+  }
+
   async getRecords(query) {
     const instance = await this.instanceModel.find(query).sort({ name: -1 });
+
+    return instance;
+  }
+
+  async getRecordsWithPopulate(query, pop) {
+    console.log(query, pop);
+    const instance = await this.instanceModel.find(query).populate(pop);
 
     return instance;
   }

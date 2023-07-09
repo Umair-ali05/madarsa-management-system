@@ -2,6 +2,7 @@
 
 import { config } from 'dotenv';
 import UserModel from '../../repo/user.js';
+import mongoose from 'mongoose';
 
 config();
 
@@ -51,6 +52,33 @@ export default {
       return res.json({
         success: true,
         teachers,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        success: false,
+        message: error.message,
+      });
+    }
+  },
+  students: async (req, res) => {
+    let { subjectId } = req.query;
+    console.log(subjectId);
+    subjectId = new mongoose.Types.ObjectId(subjectId);
+    try {
+      const student = await UserModel.getUsersData({
+        subject: { $in: subjectId },
+        role: 'Student',
+      });
+      console.log(student);
+      if (student.length <= 0) {
+        return res.status(500).json({
+          success: false,
+          message: 'search other one',
+        });
+      }
+      return res.json({
+        success: true,
+        student,
       });
     } catch (error) {
       return res.status(500).json({

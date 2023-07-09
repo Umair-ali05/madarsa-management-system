@@ -16,6 +16,8 @@ import AssignmentsPage from './pages/student/assignment';
 
 import { StudentDashboard } from './pages/dashboard/student';
 import TeacherSubject from './pages/teacher/subject';
+import MarkResultPage from './pages/teacher/result';
+import ViewResultPage from './pages/student/result';
 
 const App = () => {
   //after
@@ -45,7 +47,7 @@ const App = () => {
           />
           <Route
             exact
-            path='/payment'
+            path='/login/payment'
             component={PaymentPage}
           />
           <Route
@@ -91,6 +93,12 @@ const App = () => {
 
           <Route
             exact
+            path='/teacher/mark-result/:subjectId'
+            component={MarkResultPage}
+          />
+
+          <Route
+            exact
             path='/student'
             component={StudentDashboard}
           />
@@ -99,6 +107,11 @@ const App = () => {
             exact
             path='/student/assignments/:courseId'
             component={AssignmentsPage}
+          />
+          <Route
+            exact
+            path='/result'
+            component={ViewResultPage}
           />
         </Switch>
       </Router>
